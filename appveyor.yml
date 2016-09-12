@@ -11,14 +11,17 @@ install:
 build_script:
   - cmd: node gulp build
 
+after_build:
+  - cmd: 7z a quirkbot-factory-test-0.0.3-win-ia32.zip %APPVEYOR_BUILD_FOLDER%\build\quirkbot-factory-test-0.0.3-win-ia32
+
 test_script:
   - node --version
   - npm --version
   - cmd: npm test
 
 artifacts:
-  - path: build\quirkbot-factory-test-0.0.2-win-ia32
-    name: quirkbot-factory-test-0.0.2-win-ia32
+  - path: quirkbot-factory-test-0.0.3-win-ia32.zip
+    name: build
 
 deploy:
   provider: S3
@@ -30,6 +33,6 @@ deploy:
   region: us-east-1
   set_public: true
   folder: quirkbot-facotory-test-builds
-  artifact: quirkbot-factory-test-0.0.2-win-ia32
+  artifact: build
 
 version: "{build}"

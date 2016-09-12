@@ -90,9 +90,7 @@
 					reset.removeAttribute('hidden')
 				})
 				.catch((error) => {
-					if(typeof error === 'object'){
-						error = JSON.stringify(error)
-					}
+					error = JSON.stringify(error)
 					progressContainer.style.backgroundColor = 'red'
 					progress.innerHTML = `Upload failed: ${error}`
 					reset.removeAttribute('hidden')

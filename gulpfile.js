@@ -92,7 +92,7 @@ gulp.task('build', ['compose'], function (cb) {
 		'src',
 		{
 			outputDir: 'build',
-			version: '0.17.0',
+			version: '0.17.1-sdk',
 			outputName: `${pkg.name}-${pkg.version}-{target}`,
 			executableName: `${pkg['executable-name']}`,
 			sideBySide: true
@@ -107,7 +107,7 @@ gulp.task('build-multi', ['compose'], function (cb) {
 		'src',
 		{
 			outputDir: 'build',
-			version: '0.17.0',
+			version: '0.17.1-sdk',
 			platforms: 'win32,osx64',
 			outputName: `${pkg.name}-${pkg.version}-{target}`,
 			executableName: `${pkg['executable-name']}`,

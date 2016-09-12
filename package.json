@@ -1,7 +1,5 @@
 {
   "name": "quirkbot-factory-test-builder",
-  "version": "0.0.1",
-  "description": "",
   "dependencies": {
     "es6-promise": "3.2.1",
 

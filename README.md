@@ -1,10 +1,8 @@
-# Quirkbot lite
+# Quirkbot Factory Test
 
-Quirkbot Lite is an offline, self contained version of CODE; web environment.
-It also has some feature limitations.
+Builds platform specific binaries used to test the Quirkbots in production
 
-# How to run
+# How to build
 
 1. `npm install`
-2. `gulp build`
-3. `cd src && nw ./` (assuming your nw is in your `$PATH`)
+2. `node gulp.js build`

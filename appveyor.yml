@@ -17,8 +17,8 @@ test_script:
   - cmd: npm test
 
 artifacts:
-  - path: build\quirkbot-factory-test-0.0.1-win-ia32
-    name: quirkbot-factory-test-0.0.1-win-ia32
+  - path: build\quirkbot-factory-test-0.0.2-win-ia32
+    name: quirkbot-factory-test-0.0.2-win-ia32
 
 deploy:
   provider: S3
@@ -29,7 +29,7 @@ deploy:
   bucket: quirkbot-downloads-stage
   region: us-east-1
   set_public: true
-  folder: quirkbot-lite-builds
-  artifact: quirkbot-factory-test-0.0.1-win-ia32
+  folder: quirkbot-facotory-test-builds
+  artifact: quirkbot-factory-test-0.0.2-win-ia32
 
 version: "{build}"

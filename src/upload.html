@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title>Quirkbot Factory Test</title>
+		<script src="/code/assets/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+		<link rel="import" href="/code/assets/elements/elements.build.html" async>
+		<style>
+			body {
+				margin: 0;
+				padding: 30px;
+			}
+			body, button {
+				font-size: 20px;
+				font-family: monospace;
+			}
+			pre{
+				margin: 0;
+				margin-bottom: 20px;
+			}
+			#progress-container{
+				margin: 0;
+				padding: 30px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width:100%;
+				height:100%;
+			}
+
+		</style>
+	</head>
+	<body>
+		<qb-core-hardware-interface
+			chrome-webstore-id="jgbaejhmonchgianepimdbcpfgcbdmam"
+			id="hardware">
+		</qb-core-hardware-interface>
+		<pre id="output"></pre>
+		<div id="progress-container" hidden>
+			<pre id="progress"></pre>
+			<button id="reset">Reset</button>
+		</div>
+		<button id="button" hidden>Upload test program</button>
+
+		<script>
+			let hardware = document.getElementById('hardware')
+			let output = document.getElementById('output')
+			let progressContainer = document.getElementById('progress-container')
+			let progress = document.getElementById('progress')
+			let button = document.getElementById('button')
+			let reset = document.getElementById('reset')
+
+			let quirkbot
+
+			hardware.addEventListener('model-changed', () => {
+				if(hardware.model.quirkbots.length){
+					quirkbot = hardware.model.quirkbots[0]
+					output.innerHTML = `Quirkbot ${quirkbot.uuid} connected`
+					setTimeout(() => button.removeAttribute('hidden'), 1000)
+				}
+				else{
+					quirkbot = null
+					document.body.style.backgroundColor = 'white'
+					button.setAttribute('hidden', '')
+					output.innerHTML = 'Please connect Quirkbot'
+				}
+			})
+
+			button.addEventListener('click', () => {
+				if(!quirkbot) return
+
+				progressContainer.removeAttribute('hidden')
+				progressContainer.style.backgroundColor = 'yellow'
+				progress.innerHTML = 'Uploading, please wait...'
+				reset.setAttribute('hidden', '')
+
+				fetch('/uuid')
+				.then(response => response.json())
+				.then(response => {
+					progress.innerHTML += `\n${response.message}`
+					if(response.success){
+						return response.hex
+					}
+					else {
+						throw response.message
+					}
+				})
+				.then(hex => hardware.upload(quirkbot.uuid, hex))
+				.then(() => {
+					progressContainer.style.backgroundColor = 'green'
+					progress.innerHTML = 'Upload success!'
+					reset.removeAttribute('hidden')
+				})
+				.catch((error) => {
+					if(typeof error === 'object'){
+						error = JSON.stringify(error)
+					}
+					progressContainer.style.backgroundColor = 'red'
+					progress.innerHTML = `Upload failed: ${error}`
+					reset.removeAttribute('hidden')
+
+				})
+			})
+
+			reset.addEventListener('click', () => {
+				progressContainer.setAttribute('hidden', '')
+			})
+		</script>
+
+	</body>
+</html>

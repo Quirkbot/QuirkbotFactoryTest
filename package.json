@@ -1,0 +1,30 @@
+{
+  "name": "quirkbot-factory-test-builder",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "es6-promise": "3.2.1",
+
+    "gulp": "^3.9.1",
+    "gulp-api-log": "*",
+    "gulp-file": "^0.3.0",
+    "gulp-json-editor": "^2.2.1",
+    "ncp": "2.0.0",
+    "nwjs-builder": "^1.13.1",
+    "rimraf": "2.4.4",
+    "run-sequence": "^1.2.2"
+  },
+  "scripts": {
+    "gulp": "node ./node_modules/gulp/bin/gulp.js",
+    "test": "exit 0"
+  },
+  "author": "Quirkbot <hello@quirkbot.com>",
+  "license": "GPL",
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-standard": "^6.0.0",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "eslint-plugin-html": "^1.5.2"
+  }
+}

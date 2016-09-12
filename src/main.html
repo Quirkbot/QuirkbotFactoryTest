@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Quirkbot Factory Test</title>
+		<script>
+			// Init the main.js process
+			nw.process.mainModule.exports.init()
+
+			// Wait serves to be ready and redirect
+			var utils = require( './utils.js' )
+			var config = require( './config.json')
+			var waitForServers = function() {
+				utils.pass()
+				.then(utils.portBusy(config.ports.code))
+				.then(() => window.location = `http://localhost:${config.ports.code}/upload.html`)
+				.catch(() => setTimeout(waitForServers, 500))
+			}
+			waitForServers()
+		</script>
+	</head>
+	<body>
+		<pre>Loading...</pre>
+	</body>
+</html>

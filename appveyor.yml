@@ -29,10 +29,10 @@ deploy:
     secure: AkqgS6TgE6nC0WUZ3nNtqoH1LkPOYhol/bSlMRleKcg=
   secret_access_key:
     secure: 8hFJeMNTHobCOn8OkZirlb3iCEGjUHtxsWSFv3Jo79nklT34asKfOVcFzf3WJ1/B
-  bucket: quirkbot-downloads-stage
+  bucket: quirkbot-downloads-production
   region: us-east-1
   set_public: true
-  folder: quirkbot-facotory-test-builds
+  folder: quirkbot-factory-test-builds
   artifact: build
 
 version: "{build}"

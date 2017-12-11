@@ -2,6 +2,7 @@ node_modules
 *.log
 .tmp-build
 .tmp-sketches
+.DS_Store
 
 build
 cache
@@ -10,4 +11,3 @@ src/uuids
 src/code
 src/extension
 src/etc
-

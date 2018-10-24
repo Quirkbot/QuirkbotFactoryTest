@@ -12,7 +12,7 @@ var NWB = require('nwjs-builder')
  */
 gulp.task('install-dependencies', function (cb) {
 	utils.pass()
-	.then(utils.execute('npm cache clean'))
+	//.then(utils.execute('npm cache clean'))
 	.then(utils.execute('npm --no-optional --production --prefix src install src'))
 	.then(function() {
 		cb()
@@ -92,7 +92,7 @@ gulp.task('build', ['compose'], function (cb) {
 		'src',
 		{
 			outputDir: 'build',
-			version: '0.17.1-sdk',
+			version: '0.31.5-sdk',
 			outputName: `${pkg.name}-${pkg.version}-{target}`,
 			executableName: `${pkg['executable-name']}`,
 			sideBySide: true
@@ -107,7 +107,7 @@ gulp.task('build-multi', ['compose'], function (cb) {
 		'src',
 		{
 			outputDir: 'build',
-			version: '0.17.1-sdk',
+			version: '0.31.5-sdk',
 			platforms: 'win32,osx64',
 			outputName: `${pkg.name}-${pkg.version}-{target}`,
 			executableName: `${pkg['executable-name']}`,

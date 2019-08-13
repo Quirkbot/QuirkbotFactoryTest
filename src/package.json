@@ -16,13 +16,13 @@
   },
   "externally_connectable": {
     "matches": [
-        "*://localhost/*"
+      "*://localhost/*"
     ]
   },
   "dependencies": {
     "express": "^4.14.0",
-    "quirkbot-chrome-app": "*",
-    "quirkbot-code-static": "*"
+    "quirkbot-chrome-app": "0.2.12",
+    "quirkbot-code-static": "0.6.3"
   },
   "author": "Quirkbot <hello@quirkbot.com>",
   "license": "GPL",

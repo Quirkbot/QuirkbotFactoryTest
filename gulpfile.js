@@ -141,8 +141,8 @@ gulp.task('pre-clean', function (cb) {
  */
 gulp.task('post-clean', function (cb) {
 	utils.pass()
-	.then(utils.execute('npm --prefix src uninstall quirkbot-code-static'))
-	.then(utils.execute('npm --prefix src uninstall quirkbot-chrome-app'))
+	.then(utils.execute('npm --prefix src uninstall quirkbot-code-static --save false'))
+	.then(utils.execute('npm --prefix src uninstall quirkbot-chrome-app --save false'))
 	.then(utils.deleteDir(path.resolve('src', 'etc')))
 	.then(function() {
 		cb()

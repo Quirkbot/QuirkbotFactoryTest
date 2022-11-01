@@ -2,7 +2,7 @@
   "name": "quirkbot-factory-test-builder",
   "dependencies": {
     "es6-promise": "3.2.1",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-api-log": "*",
     "gulp-file": "^0.3.0",
     "gulp-json-editor": "^2.2.1",

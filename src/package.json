@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "express": "^4.14.0",
+    "express": "^4.17.3",
     "quirkbot-chrome-app": "0.2.12",
     "quirkbot-code-static": "0.6.3"
   },
